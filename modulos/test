@@ -1,0 +1,6 @@
+exports.complement = () => {
+    this.pergunte = (spaceIndex, cont) => {
+        console.log('does works!')
+    }
+    cmdsKeys.push('pergunte')
+}

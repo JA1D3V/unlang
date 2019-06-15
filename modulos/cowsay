@@ -1,0 +1,19 @@
+module.exports.complement = {
+    functions: {
+        cowsay: (spaceIndex, cont) => {
+            if (cont.indexOf('"') != -1){
+                let toSay = cont.slice(cont.indexOf('"') + 1, cont.indexOf(";") - 1);
+                outfile += '\nconsole.log("'+toSay+'")\nconsole.log("        \\\\   ^__^")\nconsole.log("         \\\\  (oo)\\\\_______")\nconsole.log("            (__)\\\\      )\\\\/\\\\")\nconsole.log("                ||----w |")\nconsole.log("                ||     ||")'
+                return cont.indexOf(';')
+            } else {
+                let toSay = cont.slice(1, cont.indexOf(";"));
+                outfile += '\nconsole.log('+toSay+')\nconsole.log("        \\\\   ^__^")\nconsole.log("         \\\\  (oo)\\\\_______")\nconsole.log("            (__)\\\\      )\\\\/\\\\")\nconsole.log("                ||----w |")\nconsole.log("                ||     ||")'
+                return cont.indexOf(';')
+            }
+
+        }
+    },
+    keys: [
+        'cowsay'
+    ]
+}

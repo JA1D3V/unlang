@@ -1,0 +1,48 @@
+exports.complement = {
+    functions: {
+        pergunte: (spaceIndex, cont) => { // Pergunte
+            let tr = cont.indexOf(';')
+            cont = cont.slice(1, cont.indexOf(';'))
+            let params = cont.split(',')
+            if (params.length < 2) {
+                console.log('ERR >> @pergunte')
+                console.log('Para usar o pergunte, use pelo menos dois argumentos')
+            } else {
+                var variable = params[0].slice(1, params[0].length)
+                var message = params[1].slice(1, params[1].length - 1)
+            }
+            // body comes here
+            outfile += `\nlet ${variable} = rl.question(${message})`
+
+            return tr
+        },
+        pergunteNum: (spaceIndex, cont) => { // Pergunte
+            let tr = cont.indexOf(';')
+            cont = cont.slice(1, cont.indexOf(';'))
+            let params = cont.split(',')
+            if (params.length < 2) {
+                console.log('ERR >> @pergunte')
+                console.log('Para usar o pergunte, use pelo menos dois argumentos')
+            } else {
+                var variable = params[0].slice(1, params[0].length)
+                var message = params[1].slice(1, params[1].length - 1)
+            }
+            // body comes here
+            outfile += `\n let ${variable} = rl.question(${message});\n${variable} = Number(${variable})`
+
+            return tr
+        }
+    },
+    keys: [
+        'pergunte',
+        'pergunteNum'
+    ],
+    tmpAdd: "\nconst rl = require('readline-sync')"
+}
+
+/* 
+    Este módulo está inoperante atualmente. 
+    O problema está na forma como o Node lida com processos filho, que não permite que haja uso do 'sstdin' por processos child;
+    Chance de resolução: 80%;
+    Díficuldade: Médio
+*/
